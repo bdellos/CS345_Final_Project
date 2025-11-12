@@ -1,0 +1,1 @@
+resources folder used for any files we want directly attached to our project
