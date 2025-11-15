@@ -17,5 +17,12 @@ def load_tiny_sample():
     file = ROOT / "resources/tiny_shots_2025.csv"
     data = pd.read_csv(file, delimiter=',', usecols=COLS+TARGET, header=0)
     features = data[COLS].to_numpy()
-    labels   = data[TARGET].to_numpy()
+    labels   = data[TARGET].to_numpy().squeeze() # squeeze to get rid of data conversion error
+    return features, labels
+
+def load_sample():
+    file = ROOT / "resources/shots_2025.csv"    # FILE PULLED 11/11
+    data = pd.read_csv(file, delimiter=',', usecols=COLS+TARGET, header=0)
+    features = data[COLS].to_numpy()
+    labels   = data[TARGET].to_numpy().squeeze() # squeeze to get rid of data conversion error
     return features, labels
